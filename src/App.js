@@ -1,5 +1,6 @@
 //Deploy external lib to generate unique id!? UUID
 import React, { useState, useEffect } from "react"
+import { v4 as uuidv4 } from 'uuid';
 import List from "./List"
 import Alert from "./Alert"
 
@@ -44,7 +45,7 @@ function App() {
     } else {
       // show alert
       showAlert(true, "A new item has been added to the list.", "success")
-      const newItem = { id: new Date().getTime().toString(), title: name }
+      const newItem = { id: uuidv4(), title: name }
       setList([...list, newItem])
       setName("")
     }
